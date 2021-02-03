@@ -1,9 +1,3 @@
-import pandas as pd
-
-frame = pd.read_csv('IMDb movies.csv',sep=',')
-
-import matplotlib.pyplot as plt
-
 '''
 we have to answer the following questions:
     -how many rows are in the dataframe?
@@ -15,6 +9,10 @@ we have to answer the following questions:
 then plot a chart listing the number of movies per year
 '''
 
+import pandas as pd
+import matplotlib.pyplot as plt
+frame = pd.read_csv('IMDb movies.csv',sep=',')
+
 #get all the necessary data
 numRows = len(frame)
 numColumns = len(frame.columns)
@@ -24,10 +22,10 @@ titleFrame = frame.reindex((-frame["title"].str.len()).argsort()).reset_index(dr
 longestMovieTitle=titleFrame.iloc[0]["title"]
 
 #print it out for display
-print("Number of rows: " + numRows)
-print("Number of columns: " + numColumns)
-print("Mean duration: " + meanDuration)
-print("USA count: " + usaMovies)
+print("Number of rows: " + str(numRows))
+print("Number of columns: " + str(numColumns))
+print("Mean duration: " + str(meanDuration))
+print("USA count: " + str(usaMovies))
 print("Longest title: " + longestMovieTitle)
 
 #we want to plot the years by amount of movies released that year
